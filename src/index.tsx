@@ -7,7 +7,7 @@ import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
-import {Homepage} from './view/Homepage/Homepage';
+import Homepage from './view/Homepage/Homepage';
 import {Dashboard} from './view/Dashboard/Dashboard';
 
 ReactDOM.render(

@@ -1,25 +1,13 @@
 import * as React from 'react';
 import Button from 'reactstrap/lib/Button';
-import {Redirect} from 'react-router';
-
+import {withRouter} from 'react-router-dom';
 import './Homepage.scss';
 
-export class Homepage extends React.Component<{}, {toDashboard: boolean}> {
-
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      toDashboard: false
-    };
-    this.routeToDashboard = this.routeToDashboard.bind(this);
-  }
+class Homepage extends React.Component<any, {}> {
 
   render() {
-    if (this.state.toDashboard) {
-      return <Redirect from='/' to='/dashboard' />
-    }
     return (
-        <div className='home-page'>
+        <div className='home-page text-center'>
           <h2>Welcome to PR Dashboard</h2>
           <br/>
           <Button onClick={this.routeToDashboard} color='success'>
@@ -29,7 +17,8 @@ export class Homepage extends React.Component<{}, {toDashboard: boolean}> {
     );
   }
 
-  routeToDashboard() {
-    this.setState({toDashboard: !this.state.toDashboard});
+  routeToDashboard = () => {
+    this.props.history.push('/dashboard');
   }
 }
+export default withRouter(Homepage);
