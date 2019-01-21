@@ -1,9 +1,12 @@
 import * as React from 'react';
+import Header from '../../components/Header/Header';
 
 export class Dashboard extends React.Component {
   render() {
     return (
-        <h2>Here is your dashboard</h2>
+        <div>
+        <Header />
+        </div>
     );
   }
 }
