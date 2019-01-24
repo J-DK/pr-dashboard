@@ -1,0 +1,66 @@
+#btn-add-repo {
+
+  .btn-desc {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+
+    .btn-title {
+      color: green;
+      bottom: 69px;
+      position: fixed;
+      right: 115px;
+      z-index: 50;
+      font-size: 14px;
+    }
+
+    .btn-circle {
+      position: fixed;
+      bottom: 50px;
+      right: 128px;
+      height: 56px;
+      background-color: #BDECCA;
+      z-index: 41;
+      width: 56px;
+      border-radius: 50%;
+    }
+
+    .btn-block {
+      position: fixed;
+      bottom: 50px;
+      right: 78px;
+      height: 56px;
+      width: 80px;
+      background-color: #BDECCA;
+      z-index: 40;
+    }
+  }
+
+  .btn-add {
+    position: fixed !important;
+    bottom: 50px;
+    right: 50px;
+    height: 56px;
+    width: 56px;
+    background-color: #35bd5b;
+    border-radius: 50%;
+    z-index: 48;
+    transition: 1s;
+
+    &:hover {
+      cursor: pointer;
+      transform: rotate(180deg) scale(1.2);
+    }
+
+    i {
+      color: white;
+      margin: 21px;
+      font-size: 18px;
+    }
+  }
+}
+
+#btn-add-repo div:hover:first-child ~ div {
+  visibility: visible;
+  opacity: 1;
+}
