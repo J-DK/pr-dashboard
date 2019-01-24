@@ -13,6 +13,7 @@
     "@types/reactstrap": "^6.4.3",
     "bootstrap": "^4.2.1",
     "concurrently": "^4.1.0",
+    "font-awesome": "^4.7.0",
     "json-server": "^0.14.2",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
