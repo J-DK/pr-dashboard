@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+PR Dashboard is hosted on Heroku. Please find it [here](https://pull-req-dashboard.herokuapp.com)
 
 ## Available Scripts
 
