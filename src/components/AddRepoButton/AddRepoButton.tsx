@@ -11,7 +11,7 @@ class AddRepoButton extends React.Component<IAddRepoButtonProps, {}> {
   render() {
     return (
         <div id="btn-add-repo">
-          <div className="btn-icon">
+          <div className="btn-icon" onClick={this.props.onClick}>
             <div className="btn-add">
               <i className="fa fa-plus"/>
             </div>

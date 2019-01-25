@@ -1,4 +1,4 @@
 export interface IAddRepoButtonProps {
-  // onClick?: () => void;
+  onClick?: () => void;
   title?: string;
 }
