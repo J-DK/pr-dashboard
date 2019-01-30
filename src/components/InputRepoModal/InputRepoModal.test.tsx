@@ -19,15 +19,14 @@ describe('<InputRepoModal />', () => {
     toggleFn.mockReset();
   });
 
-  it(' should check the title of the button ', () => {
+  it(' should check if the modal is shown ', () => {
     expect(wrapper.props().showModal).toBeFalsy();
   });
 
-  // xit(' should call onToggle of <Modal> ', () => {
-  //   const modal = wrapper.find('Modal');
-  //   expect(toggleFn.mock.calls.length).toEqual(0);
-  //   modal.simulate('toggle');
-  //   expect(toggleFn.mock.calls.length).toEqual(1);
-  // });
+  it(' should check the props passed ', () => {
+    const modal = wrapper.find('Modal');
+    expect(modal.props().isOpen).toBeFalsy();
+    expect(modal.props().toggle).toBe(toggleFn);
+  });
 
 });
