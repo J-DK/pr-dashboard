@@ -3,3 +3,10 @@ export interface IInputRepoModalProps {
   onClick?: () => void;
   onHide?: () => void;
 }
+
+export interface IInputRepoModalState {
+  userOptions: any;
+  repoOptions: any;
+  user: string;
+  repo: string;
+}
