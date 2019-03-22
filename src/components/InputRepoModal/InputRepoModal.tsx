@@ -17,23 +17,24 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
 
   public state: IInputRepoModalState;
 
-  constructor(props: any) {
+  constructor(props: IInputRepoModalProps) {
     super(props);
 
     this.state = {
       userOptions: [],
       repoOptions: [],
       user: '',
-      repo: ''
+      repo: '',
+      repoList: []
     }
   }
 
-  handleChange = (event: any) => {
+  handleUserChange = (event: any) => {
     this.setState({
       user: event.target.value
     });
     const text = event.target.value;
-    if(text.length > 2) {
+    if (text.length > 2) {
       AppService.fetchUsers(text)
       .then(data => {
         let options: any = [];
@@ -45,8 +46,29 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
           userOptions: options
         });
       })
-      .catch((error) => console.log('Error in fetching users list', error));
+      .catch((error) => console.error('Error in fetching users list', error));
     }
+  };
+
+  handleRepoChange = (event: any) => {
+    this.setState({
+      repo: event.target.value
+    });
+  };
+
+  handleBlur = () => {
+    AppService.fetchUserRepos(this.state.user)
+    .then(data => {
+      let repos: any = [];
+      data.forEach((x: any) => {
+        let repo = (<option key={repos.length} value={x.name}/>);
+        repos.push(repo);
+      });
+      this.setState({
+        repoOptions: repos
+      });
+    })
+    .catch((error) => console.error(`Error in fetching repositories for the user ${this.state.user}`, error));
   };
 
   render() {
@@ -58,28 +80,28 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
           </ModalHeader>
           <ModalBody>
             <div className="d-flex flex-column justify-content-around input-fields">
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <Button color="info" className="user"> User </Button>
-                </InputGroupAddon>
-                <Input placeholder="Enter User or Organization name" list="user-suggestions"
-                  value={this.state.user} onChange={this.handleChange}/>
-                <datalist id="user-suggestions">
-                  {this.state.userOptions}
-                </datalist>
-              </InputGroup>
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <Button color="info"> Repo </Button>
-                </InputGroupAddon>
-                <Input placeholder="Enter Repository name" list="repo-suggestions"/>
-                <datalist id="repo-suggestions">
-                  <option value="Repo1"/>
-                  <option value="Repo2"/>
-                  <option value="Repo3"/>
-                  <option value="Repo4"/>
-                </datalist>
-              </InputGroup>
+                  <InputGroup>
+                    <InputGroupAddon addonType="prepend">
+                      <Button type="button" color="info" className="user"> User </Button>
+                    </InputGroupAddon>
+                    <Input type="text" placeholder="Enter User or Organization name" list="user-suggestions"
+                           value={this.state.user} onChange={this.handleUserChange}
+                           onBlur={this.handleBlur} required/>
+                    <datalist id="user-suggestions">
+                      {this.state.userOptions}
+                    </datalist>
+                  </InputGroup>
+                  <InputGroup>
+                    <InputGroupAddon addonType="prepend">
+                      <Button type="button" color="info"> Repo </Button>
+                    </InputGroupAddon>
+                    <Input placeholder="Enter Repository name" list="repo-suggestions"
+                           value={this.state.repo} onChange={this.handleRepoChange}
+                    disabled={this.state.user === ''}/>
+                    <datalist id="repo-suggestions">
+                      {this.state.repoOptions}
+                    </datalist>
+                  </InputGroup>
             </div>
           </ModalBody>
           <ModalFooter>

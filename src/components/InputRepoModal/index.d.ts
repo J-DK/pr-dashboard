@@ -9,4 +9,5 @@ export interface IInputRepoModalState {
   repoOptions: any;
   user: string;
   repo: string;
+  repoList: string[];
 }
