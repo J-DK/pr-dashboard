@@ -57,18 +57,27 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
   };
 
   handleBlur = () => {
-    AppService.fetchUserRepos(this.state.user)
-    .then(data => {
-      let repos: any = [];
-      data.forEach((x: any) => {
-        let repo = (<option key={repos.length} value={x.name}/>);
-        repos.push(repo);
-      });
-      this.setState({
-        repoOptions: repos
-      });
-    })
-    .catch((error) => console.error(`Error in fetching repositories for the user ${this.state.user}`, error));
+    if (this.state.user !== '') {
+      AppService.fetchUserRepos(this.state.user)
+      .then(data => {
+        let repos: any = [];
+        data.forEach((x: any) => {
+          let repo = (<option key={repos.length} value={x.name}/>);
+          repos.push(repo);
+        });
+        this.setState({
+          repoOptions: repos
+        });
+        if (this.state.repoOptions.length === 0) {
+          const options = [(<option key="error"
+                                    value={"Either the user/org doesn't exist or there are no repositories"} />)];
+          this.setState({
+            repoOptions: options
+          });
+        }
+      })
+      .catch((error) => console.error(`Error in fetching repositories for the user ${this.state.user}`, error));
+    }
   };
 
   render() {
