@@ -105,8 +105,8 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button> Cancel </Button>
-            <Button color="danger"> Add </Button>
+            <Button onClick={this.props.onClick}> Cancel </Button>
+            <Button color="danger"> Add to Dashboard </Button>
           </ModalFooter>
         </Modal>
     );
