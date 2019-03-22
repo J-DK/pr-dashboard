@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8acdff9587f2c2a9127c",
+    "revision": "ed4bea9f0a2ca712ac99",
     "url": "/pr-dashboard/static/css/main.03ddaf27.chunk.css"
   },
   {
-    "revision": "8acdff9587f2c2a9127c",
-    "url": "/pr-dashboard/static/js/main.8acdff95.chunk.js"
+    "revision": "ed4bea9f0a2ca712ac99",
+    "url": "/pr-dashboard/static/js/main.ed4bea9f.chunk.js"
   },
   {
     "revision": "47822851e3bc56b9ef11",
@@ -28,19 +28,19 @@ self.__precacheManifest = [
     "url": "/pr-dashboard/static/media/fontawesome-webfont.fee66e71.woff"
   },
   {
-    "revision": "b06871f281fee6b241d60582ae9369b9",
-    "url": "/pr-dashboard/static/media/fontawesome-webfont.b06871f2.ttf"
-  },
-  {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
     "url": "/pr-dashboard/static/media/fontawesome-webfont.674f50d2.eot"
+  },
+  {
+    "revision": "b06871f281fee6b241d60582ae9369b9",
+    "url": "/pr-dashboard/static/media/fontawesome-webfont.b06871f2.ttf"
   },
   {
     "revision": "912ec66d7572ff821749319396470bde",
     "url": "/pr-dashboard/static/media/fontawesome-webfont.912ec66d.svg"
   },
   {
-    "revision": "786466c8065501f79ed09242b1ab9604",
+    "revision": "c90746c23863e77125a3a102e118e7ec",
     "url": "/pr-dashboard/index.html"
   }
 ];
