@@ -29,7 +29,7 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
     }
   }
 
-  handleUserChange = (event: any) => {
+  handleUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       user: event.target.value
     });
@@ -50,7 +50,7 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
     }
   };
 
-  handleRepoChange = (event: any) => {
+  handleRepoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       repo: event.target.value
     });
