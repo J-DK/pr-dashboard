@@ -41,4 +41,18 @@ export class AppService {
       throw Error(error.statusText)
     });
   }
+
+  public static async fetchPRs(fullName: string) {
+    return await fetch(`https://api.github.com/repos/${fullName}/pulls?state=all`)
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    })
+    .then(response => response.json())
+    .catch(error => {
+      throw Error(error.statusText)
+    });
+  }
 }

@@ -80,8 +80,12 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
     }
   };
 
-  render() {
+  sendFullName = () => {
+    this.props.sendFullName(this.state.user + '/' + this.state.repo);
+    this.props.onClick();
+  };
 
+  render() {
     return (
         <Modal isOpen={this.props.showModal} toggle={this.props.onClick}>
           <ModalHeader toggle={this.props.onClick}>
@@ -115,7 +119,7 @@ export class InputRepoModal extends React.Component<IInputRepoModalProps, IInput
           </ModalBody>
           <ModalFooter>
             <Button onClick={this.props.onClick}> Cancel </Button>
-            <Button color="danger"> Add to Dashboard </Button>
+            <Button color="danger" onClick={this.sendFullName}> Add to Dashboard </Button>
           </ModalFooter>
         </Modal>
     );

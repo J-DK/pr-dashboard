@@ -20,12 +20,18 @@ export class Dashboard extends React.Component<{}, IDashboardState> {
     });
   };
 
+  getPRs = (fullName: string) => {
+    AppService.fetchPRs(fullName)
+    .then(data =>  console.log('length', data.length))
+    .catch((error) => console.log('Error in fetching Pull Request Info', error));
+  };
+
   render() {
     return (
         <div>
           <Header />
           <AddRepoButton title='Add Repo' onClick={this.toggle}/>
-          <InputRepoModal showModal={this.state.showModal} onClick={this.toggle} onHide={this.toggle}/>
+          <InputRepoModal sendFullName={this.getPRs} showModal={this.state.showModal} onClick={this.toggle} onHide={this.toggle}/>
         </div>
     );
   }

@@ -1,7 +1,8 @@
 export interface IInputRepoModalProps {
   showModal?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
   onHide?: () => void;
+  sendFullName: (val: string) => void;
 }
 
 export interface IInputRepoModalState {
